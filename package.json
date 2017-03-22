@@ -25,6 +25,6 @@
     "dependencies": {
         "body-parser": "^1.17.1",
         "express": "^4.15.2",
-        "sequelizer": "^1.1.3"
+        "sequelize": "^3.30.2"
     }
 }
