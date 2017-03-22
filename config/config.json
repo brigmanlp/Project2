@@ -1,23 +1,67 @@
 {
     "development": {
         "username": "root",
-        "password": null,
-        "database": "blogger",
+        "password": "root",
+        "database": "greenData",
         "host": "127.0.0.1",
+        "dialect": "mysql"
+    },
+    "louremy": {
+        "username": "root",
+        "password": "root",
+        "database": "greenData",
+        "port": 8889,
+        "host": "127.0.0.1",
+        "dialect": "mysql"
+    },
+    "christina": {
+        "username": "root",
+        "password": "Welcome08*",
+        "database": "greenData",
+        "host": "127.0.0.1",
+        "dialect": "mysql"
+    },
+    "meredith": {
+        "username": "root",
+        "password": "root",
+        "database": "greenData",
+        "port": 8889,
+        "host": "127.0.0.1",
+        "dialect": "mysql"
+    },
+    "jasmine": {
+        "username": "root",
+        "password": "Adi0304!",
+        "database": "greenData",
+        "port": 8080,
+        "host": "127.0.0.1",
+        "dialect": "mysql"
+    },
+    "hannah": {
+        "username": "root",
+        "password": "hking5484",
+        "database": "greenData",
+        "host": "127.0.0.1",
+        "port": 8889,
         "dialect": "mysql"
     },
     "test": {
         "username": "root",
         "password": null,
-        "database": "database_test",
+        "database": "greenData",
         "host": "127.0.0.1",
         "dialect": "mysql"
     },
     "production": {
         "username": "root",
         "password": null,
-        "database": "database_production",
+        "database": "greenData",
         "host": "127.0.0.1",
-        "dialect": "mysql"
+        "dialect": "postgres"
     }
 }
+
+// To use your individual config properties 
+// open the command line and run ---
+// npm run your-name
+// no need to run node server.js
