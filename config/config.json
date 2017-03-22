@@ -2,14 +2,14 @@
     "development": {
         "username": "root",
         "password": "root",
-        "database": "greenData",
+        "database": "greenPoints",
         "host": "127.0.0.1",
         "dialect": "mysql"
     },
     "louremy": {
         "username": "root",
         "password": "root",
-        "database": "greenData",
+        "database": "greenPoints",
         "port": 8889,
         "host": "127.0.0.1",
         "dialect": "mysql"
@@ -17,14 +17,14 @@
     "christina": {
         "username": "root",
         "password": "Welcome08*",
-        "database": "greenData",
+        "database": "greenPoints",
         "host": "127.0.0.1",
         "dialect": "mysql"
     },
     "meredith": {
         "username": "root",
         "password": "root",
-        "database": "greenData",
+        "database": "greenPoints",
         "port": 8889,
         "host": "127.0.0.1",
         "dialect": "mysql"
@@ -32,7 +32,7 @@
     "jasmine": {
         "username": "root",
         "password": "Adi0304!",
-        "database": "greenData",
+        "database": "greenPoints",
         "port": 8080,
         "host": "127.0.0.1",
         "dialect": "mysql"
@@ -40,7 +40,7 @@
     "hannah": {
         "username": "root",
         "password": "hking5484",
-        "database": "greenData",
+        "database": "greenPoints",
         "host": "127.0.0.1",
         "port": 8889,
         "dialect": "mysql"
@@ -48,14 +48,14 @@
     "test": {
         "username": "root",
         "password": null,
-        "database": "greenData",
+        "database": "greenPoints",
         "host": "127.0.0.1",
         "dialect": "mysql"
     },
     "production": {
         "username": "root",
         "password": null,
-        "database": "greenData",
+        "database": "greenPoints",
         "host": "127.0.0.1",
         "dialect": "postgres"
     }
