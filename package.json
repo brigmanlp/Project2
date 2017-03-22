@@ -9,8 +9,8 @@
         "hannah": "NODE_ENV=hannah node server.js",
         "louremy": "NODE_ENV=louremy node server.js",
         "meredith": "NODE_ENV=meredith node server.js",
-        "jasmine": "NODE_ENV=jasmine node server.js",
-        "christina": "NODE_ENV=christina node server.js"
+        "jasmine": "set NODE_ENV=jasmine&& node server.js",
+        "christina": "set NODE_ENV=christina&& node server.js"
     },
     "repository": {
         "type": "git",
