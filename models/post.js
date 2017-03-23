@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
   var Post = sequelize.define("Citizen Contribution", {
-    featureName: {
+    FeatureName: {
       type: DataTypes.TEXT,
       allowNull: false,
       validate: {
