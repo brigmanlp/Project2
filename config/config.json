@@ -33,7 +33,7 @@
         "username": "root",
         "password": "Adi0304!",
         "database": "greenPoints",
-        "port": 8080,
+        "port": 3306,
         "host": "127.0.0.1",
         "dialect": "mysql"
     },
@@ -60,8 +60,3 @@
         "dialect": "postgres"
     }
 }
-
-// To use your individual config properties 
-// open the command line and run ---
-// npm run your-name-lowercase
-// no need to run node server.js
