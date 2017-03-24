@@ -5,20 +5,34 @@
 // Dependencies
 // =============================================================
 
-// Requiring our Todo model
+// Requiring our citizen models
 var db = require("../models");
 
 // Routes
 // =============================================================
 module.exports = function(app) {
 
-  // GET route for getting all of the posts
-  app.get("/api/greenLocations/", function(req, res) {
-    db.Post.findAll({})
-    .then(function(dbPost) {
-      res.json(dbPost);
+  // GET route for getting all of the citizen and preloaded submits
+
+    app.get('/api/citizencontribution', function(req, res) {
+        db.citizencontribution.findAll({})
+      .then(function(dbcitizencontribution) {
+      res.json(dbcitizencontribution);
     });
-  });
+
+    });
+
+
+
+
+
+  // app.get("/api/citizencontribution", function(req, res) {
+  //   db.findAll({})
+  //   .then(function(dbPost) {
+  //     res.json(dbPost);
+  //   });
+  //   console.log("it worked")
+  // });
 
   // Get route for returning posts of a specific category
   app.get("/api/posts/category/:category", function(req, res) {
