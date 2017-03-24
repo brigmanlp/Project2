@@ -24,14 +24,14 @@ module.exports = function(sequelize, DataTypes) {
       len: [1]
     },
      Latitude: {
-      type: DataTypes.FLOAT,
+      type: DataTypes.DECIMAL(12, 10),
       allowNull: false,
       validate: {
         len: [1]
       }
     },
     Longitude: {
-      type: DataTypes.FLOAT,
+      type: DataTypes.DECIMAL(12, 10),
       allowNull: false,
       validate: {
         len: [1]
