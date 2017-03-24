@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var Post = sequelize.define("CitizenContribution", {
+  var citizencontribution = sequelize.define("citizencontribution", {
     FeatureName: {
       type: DataTypes.TEXT,
       allowNull: false,
@@ -111,5 +111,7 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  return Post;
+  return citizencontribution;
+  citizencontribution.sync();
+  module.exports = citizencontribution;
 };
