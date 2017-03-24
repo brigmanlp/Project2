@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var Post = sequelize.define("Citizen Contribution", {
+  var Post = sequelize.define("CitizenContribution", {
     FeatureName: {
       type: DataTypes.TEXT,
       allowNull: false,
@@ -24,14 +24,14 @@ module.exports = function(sequelize, DataTypes) {
       len: [1]
     },
      Latitude: {
-      type: DataTypes.NUMERIC,
+      type: DataTypes.FLOAT,
       allowNull: false,
       validate: {
         len: [1]
       }
     },
     Longitude: {
-      type: DataTypes.NUMERIC,
+      type: DataTypes.FLOAT,
       allowNull: false,
       validate: {
         len: [1]
