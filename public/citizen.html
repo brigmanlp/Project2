@@ -2,48 +2,52 @@
 <html lang="en">
 
 <head>
-	<title>Citizen Contribution - Add your contribution to Green Charlotte</title>
-	<!-- meta information -->
-	<meta charset="UTF-8">
-	<meta name="description" content="Free Web tutorials">
-  	<meta name="keywords" content="Green Charlotte, Green Locations in Charlotte">
-  	<meta name="author" content="Green Charlotte">
-  	<meta property=”og:image” content="../public/assets/images/park.jpg" />
-	<meta property="og:locale" content="en_US" />
-	<meta property="og:type" content="form" />
-	<!-- Latest compiled and minified CSS & JS -->
-	<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="css/styles.css" media="screen" title="no title">
-	<script src="https://code.jquery.com/jquery.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <title>Citizen Contribution - Add your contribution to Green Charlotte</title>
+    <!-- meta information -->
+    <meta charset="UTF-8">
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="Green Charlotte, Green Locations in Charlotte">
+    <meta name="author" content="Green Charlotte">
+    <meta property=”og:image” content="../public/assets/images/park.jpg" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="form" />
+    <!-- Latest compiled and minified CSS & JS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <!--Local Style Sheet-->
+    <link rel="stylesheet" href="/assets/css/styles.css" media="screen" title="no title">
+
 </head>
 
 <body>
-	<div class="container">
-	<h2 align="middle">Citizen Contribution for Green Charlotte</h2>
-		<div class="row">
-    		<!-- FORM -->
-			<div class="col-md-6 col-md-offset-3">
-				<form id="citizenContribution">
-					<div class="form-group">
-					<!-- Feature Main -->
-						<div class="panel panel-success">
-  						<div class="panel-heading">
-    						<h1 class="panel-title">
-      							<span class="glyphicon glyphicon-globe">
-      							</span>
-       		 					&nbsp;Feature Information
-    						</h1>
-  						</div>
-  						<div class="panel-body">
+    <div class="container">
+        <h2 align="middle">Citizen Contribution for Green Charlotte</h2>
+        <div class="row">
+            <!-- FORM -->
+            <div class="col-md-6 col-md-offset-3">
+                <form id="citizenContribution">
+                    <div class="form-group">
+                        <!-- Feature Main -->
+                        <div class="panel panel-success">
+                            <div class="panel-heading">
+                                <h1 class="panel-title">
+                                    <span class="glyphicon glyphicon-globe">
+      							</span> &nbsp;Feature Information
+                                </h1>
+                            </div>
+                            <div class="panel-body">
 
-					<!-- Feature Name, required  -->
-						<label for="FeatureName">Feature Name:</label> <!-- updated to match DB -->
-						<input type="text" class="form-control" id="featureName" required>
-						<br />
-					<!-- DB Theme, labeled category, required -->
-						<label for="Theme">Select Category:</label> <!-- for changed to match DB -->
-							<select class="form-control" id="category" required>
+                                <!-- Feature Name, required  -->
+                                <label for="FeatureName">Feature Name:</label>
+                                <!-- updated to match DB -->
+                                <input type="text" class="form-control" id="featureName" required>
+                                <br />
+                                <!-- DB Theme, labeled category, required -->
+                                <label for="Theme">Select Category:</label>
+                                <!-- for changed to match DB -->
+                                <select class="form-control" id="category" required>
 								<option value="B-Cycle Station">B-Cycle Station</option>
 								<option value="Big Belly Station">Big Belly Station</option>
 								<option value="Bike Trail">Bike Trail</option>
@@ -59,168 +63,161 @@
 								<option value="Tree">Tree</option>
   							</select>
 
-					<!-- Feature Description, required  -->
-						<label for="FeatureDescription">Feature Description:</label>
-						<textarea class="form-control" rows="3" id="body"></textarea>
+                                <!-- Feature Description, required  -->
+                                <label for="FeatureDescription">Feature Description:</label>
+                                <textarea class="form-control" rows="3" id="body"></textarea>
 
-						</div>
-						</div>
+                            </div>
+                        </div>
 
-					<!-- Feature Location Information -->
-						<div class="panel panel-success">
-  						<div class="panel-heading">
-    						<h1 class="panel-title">
-      							<span class="glyphicon glyphicon-map-marker">
-      							</span>
-       		 					&nbsp;Location Information
-    						</h1>
-  						</div>
-  						<div class="panel-body">
+                        <!-- Feature Location Information -->
+                        <div class="panel panel-success">
+                            <div class="panel-heading">
+                                <h1 class="panel-title">
+                                    <span class="glyphicon glyphicon-map-marker">
+      							</span> &nbsp;Location Information
+                                </h1>
+                            </div>
+                            <div class="panel-body">
 
-					<!-- Feature Location Name, required -->
-						<label for="FeatureLocation">Location Address Name:</label>
-						<input type="text" class="form-control" id="FeatureLocation" required> 
+                                <!-- Feature Location Name, required -->
+                                <label for="FeatureLocation">Location Address Name:</label>
+                                <input type="text" class="form-control" id="FeatureLocation" required>
 
-						<br />
-					<!-- Feature Latitude required -->
-						<label for="Latitude">Location Latitude Coordinate:</label>
-						<input type="number" class="form-control" id="Latitude" required>
+                                <br />
+                                <!-- Feature Latitude required -->
+                                <label for="Latitude">Location Latitude Coordinate:</label>
+                                <input type="number" class="form-control" id="Latitude" required>
 
-						<br />
-					<!-- Feature Longitude required -->
-						<label for="Longitude">Location Longitude Coordinate:</label>
-						<input type="number" class="form-control" id="Longitude" required>
-
-
-						</div>
-						</div>
-
-					<!-- Image(s) Details. not required -->
-
-						<div class="panel panel-success">
-  						<div class="panel-heading">
-    						<h1 class="panel-title">
-      							<span class="glyphicon glyphicon-picture">
-      							</span>
-       		 					&nbsp;Image Information
-    						</h1>
-  						</div>
-  						<div class="panel-body">
-
-							<!-- Image 1 URL -->
-							<label for="Image1Path">Image URL:</label>
-							<div class="input-group"><span class="input-group-addon glyphicon glyphicon-link"></span>
-							<input type="url" class="form-control" id="Image1Path">
-							</div>
-							<br />
-							<!-- Image 1 Description -->
-							<label for="Image1Description">Image Description:</label>
-							<input type="text" class="form-control" id="Image1Description">
+                                <br />
+                                <!-- Feature Longitude required -->
+                                <label for="Longitude">Location Longitude Coordinate:</label>
+                                <input type="number" class="form-control" id="Longitude" required>
 
 
-							<br />
-							<!-- Image 2 URL -->
-							<label for="Image2Path">Additional Image URL:</label>
-							<div class="input-group"><span class="input-group-addon glyphicon glyphicon-link"></span>
-							<input type="url" class="form-control" id="Image2Path">
-							</div>
-							<br />
+                            </div>
+                        </div>
 
-							<!-- Image 2 Description -->
-							<label for="Image2Description">Additional Image Description:</label>
-							<input type="text" class="form-control" id="Image2Description">
+                        <!-- Image(s) Details. not required -->
 
-						</div>
-						</div>
+                        <div class="panel panel-success">
+                            <div class="panel-heading">
+                                <h1 class="panel-title">
+                                    <span class="glyphicon glyphicon-picture">
+      							</span> &nbsp;Image Information
+                                </h1>
+                            </div>
+                            <div class="panel-body">
 
-					<!-- URLs, not required -->
-						<div class="panel panel-success">
-  						<div class="panel-heading">
-    						<h1 class="panel-title">
-      							<span class="glyphicon glyphicon-link">
-      							</span>
-       		 					&nbsp;Link Information
-    						</h1>
-  						</div>
-  						<div class="panel-body">
-						
-							<!-- URL 1 to feature site -->
-							<label for="Link1Path">Feature Site URL:</label>
-							<div class="input-group"><span class="input-group-addon glyphicon glyphicon-link"></span>
-							<input type="url" class="form-control" id="Link1Path">
-							</div>
-							<br />
-							<!-- URL 1 Name -->
-							<label for="Link1Description">Feature Site URL Name:</label>
-							<input type="text" class="form-control" id="Link1Description">
-							<br />
-							<!-- URL 2 to feature site -->
-							<label for="Link2Path">Additonal Feature Site URL:</label>
-							<div class="input-group"><span class="input-group-addon glyphicon glyphicon-link"></span>
-							<input type="url" class="form-control" id="Link2Path">
-							</div>
-							<br />
-							<!-- URL 1 Name -->
-							<label for="Link2Description">Additional Feature Site URL Name:</label>
-							<input type="text" class="form-control" id="Link2Description">
-
-						</div>
-						</div>
-
-					</div>
-
-						<!-- Submit the Citizen Contr. from -->
-						<button type="submit" class="btn btn-success submit">Submit</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	
-	</div>
+                                <!-- Image 1 URL -->
+                                <label for="Image1Path">Image URL:</label>
+                                <div class="input-group"><span class="input-group-addon glyphicon glyphicon-link"></span>
+                                    <input type="url" class="form-control" id="Image1Path">
+                                </div>
+                                <br />
+                                <!-- Image 1 Description -->
+                                <label for="Image1Description">Image Description:</label>
+                                <input type="text" class="form-control" id="Image1Description">
 
 
-	<!-- Submit Script  -->
+                                <br />
+                                <!-- Image 2 URL -->
+                                <label for="Image2Path">Additional Image URL:</label>
+                                <div class="input-group"><span class="input-group-addon glyphicon glyphicon-link"></span>
+                                    <input type="url" class="form-control" id="Image2Path">
+                                </div>
+                                <br />
 
-	 <script type="text/javascript">
-  	
-    // Capture the form inputs 
-    $("#submit").on("click", function(){
-    	// Form validation
-    	function validateForm() {
-		  var isValid = true;
-		  $('.form-control').each(function() {
-		    if ( $(this).val() === '' )
-		        isValid = false;
-		  });
-		  $('.chosen-select').each(function() {
-		  	if( $(this).val() === "")
-		  		isValid = false
-		  })
-		  return isValid;
-		}
-		// Clear the Form
-		function clearForm() {
-		  $('.citizenContribution').each(function() {
-		    $(this).val('');
-		  });
-		}
-		// If all required fields are filled
-		if (validateForm() == true)
-		{
-			// AJAX post the data to greenLocations 
-	    	$.post(currentURL + "/api/citizencontribution", userData, function(data){
-				// Clear the page so someone cannot submit duplicate profiles immediately
-				clearForm();
-	    	});
-		}
-		else
-		{
-			alert("ALERT! Please fill out all fields before submitting!");
-		}
-    	
-    	return false;
-    });
-  </script> 
+                                <!-- Image 2 Description -->
+                                <label for="Image2Description">Additional Image Description:</label>
+                                <input type="text" class="form-control" id="Image2Description">
+
+                            </div>
+                        </div>
+
+                        <!-- URLs, not required -->
+                        <div class="panel panel-success">
+                            <div class="panel-heading">
+                                <h1 class="panel-title">
+                                    <span class="glyphicon glyphicon-link">
+      							</span> &nbsp;Link Information
+                                </h1>
+                            </div>
+                            <div class="panel-body">
+
+                                <!-- URL 1 to feature site -->
+                                <label for="Link1Path">Feature Site URL:</label>
+                                <div class="input-group"><span class="input-group-addon glyphicon glyphicon-link"></span>
+                                    <input type="url" class="form-control" id="Link1Path">
+                                </div>
+                                <br />
+                                <!-- URL 1 Name -->
+                                <label for="Link1Description">Feature Site URL Name:</label>
+                                <input type="text" class="form-control" id="Link1Description">
+                                <br />
+                                <!-- URL 2 to feature site -->
+                                <label for="Link2Path">Additonal Feature Site URL:</label>
+                                <div class="input-group"><span class="input-group-addon glyphicon glyphicon-link"></span>
+                                    <input type="url" class="form-control" id="Link2Path">
+                                </div>
+                                <br />
+                                <!-- URL 1 Name -->
+                                <label for="Link2Description">Additional Feature Site URL Name:</label>
+                                <input type="text" class="form-control" id="Link2Description">
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Submit the Citizen Contr. from -->
+                    <button type="submit" class="btn btn-success submit">Submit</button>
+            </div>
+            </form>
+        </div>
+    </div>
+
+    </div>
+
+
+    <!-- Submit Script  -->
+
+    <script type="text/javascript">
+        // Capture the form inputs 
+        $("#submit").on("click", function() {
+            // Form validation
+            function validateForm() {
+                var isValid = true;
+                $('.form-control').each(function() {
+                    if ($(this).val() === '')
+                        isValid = false;
+                });
+                $('.chosen-select').each(function() {
+                    if ($(this).val() === "")
+                        isValid = false
+                })
+                return isValid;
+            }
+            // Clear the Form
+            function clearForm() {
+                $('.citizenContribution').each(function() {
+                    $(this).val('');
+                });
+            }
+            // If all required fields are filled
+            if (validateForm() == true) {
+                // AJAX post the data to greenLocations 
+                $.post(currentURL + "/api/citizencontribution", userData, function(data) {
+                    // Clear the page so someone cannot submit duplicate profiles immediately
+                    clearForm();
+                });
+            } else {
+                alert("ALERT! Please fill out all fields before submitting!");
+            }
+
+            return false;
+        });
+    </script>
 
 </body>
 
