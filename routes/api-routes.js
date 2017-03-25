@@ -12,87 +12,79 @@ var db = require("../models");
 // =============================================================
 module.exports = function(app) {
 
-  // GET route for getting all of the citizen and preloaded submits
+    // GET route for getting all of the citizen and preloaded submits
 
     app.get('/api/citizencontribution', function(req, res) {
         db.citizencontribution.findAll({})
-      .then(function(dbcitizencontribution) {
-      res.json(dbcitizencontribution);
+            .then(function(dbcitizencontribution) {
+                res.json(dbcitizencontribution);
+            });
     });
 
+    // POST route for saving a new post
+    app.post("/api/citizencontribution", function(req, res) {
+        console.log(req.body);
+        db.citizencontribution.create({
+                FeatureName: req.body.FeatureName,
+                Theme: req.body.Theme,
+                FeatureDetails: req.body.FeatureDetails,
+                FeatureLocation: req.body.FeatureLocation,
+                Latitude: req.body.Latitude,
+                Longitude: req.body.Longitude,
+                Image1Path: req.body.Image1Path,
+                Image1Description: req.body.Image1Description,
+                Link1Path: req.body.Link1Path,
+                Link1Description: req.body.Link1Description,
+            })
+            .then(function(dbcitizencontribution) {
+                res.json(dbcitizencontribution);
+            });
     });
 
-
-
-
-
-  // app.get("/api/citizencontribution", function(req, res) {
-  //   db.findAll({})
-  //   .then(function(dbPost) {
-  //     res.json(dbPost);
-  //   });
-  //   console.log("it worked")
-  // });
-
-  // Get route for returning posts of a specific category
-  app.get("/api/posts/category/:category", function(req, res) {
-    db.Post.findAll({
-      where: {
-        category: req.params.category
-      }
-    })
-    .then(function(dbPost) {
-      res.json(dbPost);
+    // Get route for returning posts of a specific category (Theme)
+    app.get("/api/theme/:theme", function(req, res) {
+        db.citizencontribution.findAll({
+                where: {
+                    Theme: req.params.theme
+                }
+            })
+            .then(function(dbcitizencontribution) {
+                res.json(dbcitizencontribution);
+            });
     });
-  });
 
-  // Get rotue for retrieving a single post
-  app.get("/api/posts/:id", function(req, res) {
-    db.Post.findOne({
-      where: {
-        id: req.params.id
-      }
-    })
-    .then(function(dbPost) {
-      res.json(dbPost);
+    // Get route for returning posts of a specific ID (ID)
+    app.get("/api/id/:id", function(req, res) {
+        db.citizencontribution.findOne({
+                where: {
+                    id: req.params.id
+                }
+            })
+            .then(function(dbcitizencontribution) {
+                res.json(dbcitizencontribution);
+            });
     });
-  });
 
-  // POST route for saving a new post
-  app.post("/api/posts", function(req, res) {
-    console.log(req.body);
-    db.Post.create({
-      title: req.body.title,
-      body: req.body.body,
-      category: req.body.category
-    })
-    .then(function(dbPost) {
-      res.json(dbPost);
+    // DELETE route for deleting posts
+    app.delete("/api/removebyid/:id", function(req, res) {
+        db.citizencontribution.findOne({
+                where: {
+                    id: req.params.id
+                }
+            })
+            .then(function(dbcitizencontribution) {
+                res.json(dbcitizencontribution);
+            });
     });
-  });
-
-  // DELETE route for deleting posts
-  app.delete("/api/posts/:id", function(req, res) {
-    db.Post.destroy({
-      where: {
-        id: req.params.id
-      }
-    })
-    .then(function(dbPost) {
-      res.json(dbPost);
+    // PUT route for updating posts
+    app.put("/api/updatebyid/:id", function(req, res) {
+        db.citizencontribution.update(req.body, {
+                where: {
+                    id: req.body.id
+                }
+            })
+            .then(function(dbcitizencontribution) {
+                res.json(dbcitizencontribution);
+            });
     });
-  });
-
-  // PUT route for updating posts
-  app.put("/api/posts", function(req, res) {
-    db.Post.update(req.body,
-      {
-        where: {
-          id: req.body.id
-        }
-      })
-    .then(function(dbPost) {
-      res.json(dbPost);
-    });
-  });
 };

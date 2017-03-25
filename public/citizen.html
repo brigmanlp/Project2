@@ -13,12 +13,9 @@
     <meta property="og:type" content="form" />
     <!-- Latest compiled and minified CSS & JS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css" media="screen" title="no title">
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-    <!--Local Style Sheet-->
-    <link rel="stylesheet" href="/assets/css/styles.css" media="screen" title="no title">
-
 </head>
 
 <body>
@@ -64,7 +61,7 @@
   							</select>
 
                                 <!-- Feature Description, required  -->
-                                <label for="FeatureDescription">Feature Description:</label>
+                                <label for="FeatureDetails">Feature Description:</label>
                                 <textarea class="form-control" rows="3" id="body"></textarea>
 
                             </div>
@@ -80,9 +77,14 @@
                             </div>
                             <div class="panel-body">
 
-                                <!-- Feature Location Name, required -->
-                                <label for="FeatureLocation">Location Address Name:</label>
+                                <!-- Feature Location Street Address, required -->
+                                <label for="FeatureLocation">Location Street Address:</label>
                                 <input type="text" class="form-control" id="FeatureLocation" required>
+
+                                <br />
+                                <!-- Feature Location Zip, required -->
+                                <label for="FeatureZip">Location Zip Code:</label>
+                                <input type="text" class="form-control" id="FeatureZip" required>
 
                                 <br />
                                 <!-- Feature Latitude required -->
@@ -118,20 +120,7 @@
                                 <!-- Image 1 Description -->
                                 <label for="Image1Description">Image Description:</label>
                                 <input type="text" class="form-control" id="Image1Description">
-
-
                                 <br />
-                                <!-- Image 2 URL -->
-                                <label for="Image2Path">Additional Image URL:</label>
-                                <div class="input-group"><span class="input-group-addon glyphicon glyphicon-link"></span>
-                                    <input type="url" class="form-control" id="Image2Path">
-                                </div>
-                                <br />
-
-                                <!-- Image 2 Description -->
-                                <label for="Image2Description">Additional Image Description:</label>
-                                <input type="text" class="form-control" id="Image2Description">
-
                             </div>
                         </div>
 
@@ -155,23 +144,13 @@
                                 <label for="Link1Description">Feature Site URL Name:</label>
                                 <input type="text" class="form-control" id="Link1Description">
                                 <br />
-                                <!-- URL 2 to feature site -->
-                                <label for="Link2Path">Additonal Feature Site URL:</label>
-                                <div class="input-group"><span class="input-group-addon glyphicon glyphicon-link"></span>
-                                    <input type="url" class="form-control" id="Link2Path">
-                                </div>
-                                <br />
-                                <!-- URL 1 Name -->
-                                <label for="Link2Description">Additional Feature Site URL Name:</label>
-                                <input type="text" class="form-control" id="Link2Description">
-
                             </div>
                         </div>
 
                     </div>
 
                     <!-- Submit the Citizen Contr. from -->
-                    <button type="submit" class="btn btn-success submit">Submit</button>
+                    <button type="submit" class="btn btn-success" id="submit">Submit</button>
             </div>
             </form>
         </div>
@@ -185,6 +164,7 @@
     <script type="text/javascript">
         // Capture the form inputs 
         $("#submit").on("click", function() {
+            event.preventDefault();
             // Form validation
             function validateForm() {
                 var isValid = true;
@@ -197,19 +177,38 @@
                         isValid = false
                 })
                 return isValid;
+                console.log("Form is returned valid");
             }
             // Clear the Form
             function clearForm() {
+                console.log("In Post");
                 $('.citizenContribution').each(function() {
                     $(this).val('');
                 });
             }
             // If all required fields are filled
             if (validateForm() == true) {
+                var currentURL = window.location.origin;
+                var userData = {
+                    FeatureName: $("#featureName").val(),
+                    Theme: $("#category").val(),
+                    FeatureDetails: $("#body").val(),
+                    FeatureLocation: $("#FeatureLocation").val(),
+                    Latitude: $("#Latitude").val(),
+                    Longitude: $("#Longitude").val(),
+                    Image1Path: $("#Image1Path").val(),
+                    Image1Description: $("#Image1Description").val(),
+                    Link1Path: $("#Link1Path").val(),
+                    Link1Description: $("#Link1Description").val(),
+                }
+                console.log(JSON.stringify(userData));
+                var zip = $("#FeatureZip").val();
                 // AJAX post the data to greenLocations 
                 $.post(currentURL + "/api/citizencontribution", userData, function(data) {
+                    console.log("In Post");
+                    alert("This was added to the database: " + userData);
                     // Clear the page so someone cannot submit duplicate profiles immediately
-                    clearForm();
+                    // clearForm();
                 });
             } else {
                 alert("ALERT! Please fill out all fields before submitting!");
