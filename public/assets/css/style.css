@@ -1,0 +1,15 @@
+#map {
+    width: 75%;
+    height: 75%;
+    position: absolute;
+    margin: auto;
+}
+
+#map-container {
+    position: relative;
+}
+
+.jumbo-pic {
+    width: 100%;
+    text-align: center;
+}
