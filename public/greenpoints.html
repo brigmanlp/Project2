@@ -24,55 +24,40 @@
             <hr>
             <h2 class=" " align="middle">Green Charlotte</h2>
         </div>
-        <div class="well greenpoints" align="middle">
+        <div class="well" id="greenpoints" align="middle">
             <h2>Search greenpoints</h2>
-            <p>Need a user input to build queries for different examples of green places. </p>
-            <p>Result</p>
         </div>
-        <div class="row">
-            <!-- FORM -->
-            <div class="col-md-6 col-md-offset-3">
-                <form id="citizenContribution">
-                    <div class="form-group">
-                        <!-- Feature Main -->
-                        <div class="panel panel-success">
-                            <div class="panel-heading">
-                                <h1 class="panel-title">
-                                    <span class="glyphicon glyphicon-globe">
-      							</span> &nbsp;Feature Information
-                                </h1>
-                            </div>
-                            <div class="panel-body">
-                                <!-- DB Theme, labeled category, required -->
-                                <label for="Theme">Select Category:</label>
-                                <!-- for changed to match DB -->
-                                <select class="form-control" id="category" required>
-								<option value="B-Cycle Station">B-Cycle Station</option>
-								<option value="Big Belly Station">Big Belly Station</option>
-								<option value="Bike Trail">Bike Trail</option>
-								<option value="Community Garden">Community Garden</option>
-								<option value="Electric Vehicle Charging Station">Electric Vehicle Charging Station</option>
-								<option value="Farm">Farm</option>
-								<option value="Farmer's Market">Farmer's Market</option>
-								<option value="Green Roof">Green Roof</option>
-								<option value="Greenway/Trail">Greenway/Trail</option>
-								<option value="LEED Certified Building">LEED Certified Building</option>
-								<option value="Park">Park</option>
-								<option value="Solar">Solar</option>
-								<option value="Tree">Tree</option>
-  							</select>
-                                <br />
-                                <!-- Feature Name, Optional  -->
-                                <label for="FeatureName">Feature Name:</label>
-                                <!-- updated to match DB -->
-                                <input type="text" class="form-control" id="featureName" required>
-                                <br />
-                            </div>
-                        </div>
-                </form>
-                </div>
-            </div>
-        </div>
+        <script>
+            // on submit
+            $("#submit").on("click", function() {
+                event.preventDefault();
+                //set variable for the category
+                var category = $("#category").val().trim();
+                //make a get call for the theme using the category variable 
+                $.get("/api/theme/" + category, function(data) {
+                    data.forEach(function(currItem, idx, origArr) {
+                        var name = currItem.FeatureName;
+                        var featureName = $("<h2>")
+                        featureName.html(name);
+                        var details = currItem.FeatureDetails;
+                        var featureDets = $("<p>")
+                        featureDets.html(details);
+                        var points = $("<div>");
+                        var imgSrc = "/assets/icons/ecopack/ecologism-2.png";
+                        points.attr("class", "well");
+                        if (currItem.Image1Path && currItem.Image1Path.trim().length > 0) {
+                            imgSrc = currItem.Image1Path;
+                        }
+                        var img = $(`<img src="${imgSrc}" alt=" ${name}" class="pointsImages" align="left">`);
+                        points.append(img);
+                        points.append(featureName);
+                        points.append(featureDets);
+                        $("#greenpoints").append(points);
+                    })
+                    console.log("data added")
+                });
+            });
+        </script>
 </body>
 
 </html>
