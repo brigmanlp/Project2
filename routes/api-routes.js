@@ -29,8 +29,6 @@ module.exports = function(app) {
                 Theme: req.body.Theme,
                 FeatureDetails: req.body.FeatureDetails,
                 FeatureLocation: req.body.FeatureLocation,
-                Latitude: req.body.Latitude,
-                Longitude: req.body.Longitude,
                 Image1Path: req.body.Image1Path,
                 Image1Description: req.body.Image1Description,
                 Link1Path: req.body.Link1Path,
