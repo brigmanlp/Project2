@@ -16,6 +16,10 @@
     <link rel="stylesheet" href="css/styles.css" media="screen" title="no title">
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="http://maps.google.com/maps/api/js?key=AIzaSyBhYZ_SgvHx2SuEjwPFIYDD-5mVG7O0V50">
+    </script>
+
+
 </head>
 
 <body>
@@ -59,7 +63,7 @@
 								<option value="Solar">Solar</option>
 								<option value="Tree">Tree</option>
   							</select>
-
+								<br />
                                 <!-- Feature Description, required  -->
                                 <label for="FeatureDetails">Feature Description:</label>
                                 <textarea class="form-control" rows="3" id="body"></textarea>
@@ -79,24 +83,11 @@
 
                                 <!-- Feature Location Street Address, required -->
                                 <label for="FeatureLocation">Location Street Address:</label>
-                                <input type="text" class="form-control" id="FeatureLocation" required>
+                                <input type="text" class="form-control" id="FeatureLocation" value="Enter Address or Get Location" id="addy" required>
+                                <br />
+                                <input type="button" class="btn btn-success" id="getLocation" onclick="getLocation()" value="Get Location"/>
 
                                 <br />
-                                <!-- Feature Location Zip, required -->
-                                <label for="FeatureZip">Location Zip Code:</label>
-                                <input type="text" class="form-control" id="FeatureZip" required>
-
-                                <br />
-                                <!-- Feature Latitude required -->
-                                <label for="Latitude">Location Latitude Coordinate:</label>
-                                <input type="number" class="form-control" id="Latitude" required>
-
-                                <br />
-                                <!-- Feature Longitude required -->
-                                <label for="Longitude">Location Longitude Coordinate:</label>
-                                <input type="number" class="form-control" id="Longitude" required>
-
-
                             </div>
                         </div>
 
@@ -194,8 +185,6 @@
                     Theme: $("#category").val(),
                     FeatureDetails: $("#body").val(),
                     FeatureLocation: $("#FeatureLocation").val(),
-                    Latitude: $("#Latitude").val(),
-                    Longitude: $("#Longitude").val(),
                     Image1Path: $("#Image1Path").val(),
                     Image1Description: $("#Image1Description").val(),
                     Link1Path: $("#Link1Path").val(),
@@ -213,10 +202,73 @@
             } else {
                 alert("ALERT! Please fill out all fields before submitting!");
             }
-
             return false;
         });
-    </script>
+
+
+
+		$("#getLocation").on("click", function() {
+		      console.log("Entering getLocation()");
+		      if(navigator.geolocation){
+		      navigator.geolocation.getCurrentPosition(
+		      displayCurrentLocation,
+		      displayError,
+		      { 
+		        maximumAge: 3000, 
+		        timeout: 5000, 
+		        enableHighAccuracy: true 
+		      });
+		    }else{
+		      console.log("Oops, no geolocation support");
+		    } 
+		      console.log("Exiting getLocation()");
+		    });
+		    function displayCurrentLocation(position){
+		      console.log("Entering displayCurrentLocation");
+		      var latitude = position.coords.latitude;
+		        var longitude = position.coords.longitude;
+		    console.log("Latitude " + latitude +" Longitude " + longitude);
+		    getAddressFromLatLang(latitude,longitude);
+		      console.log("Exiting displayCurrentLocation");
+		    }
+		   function  displayError(error){
+		    console.log("Entering ConsultantLocator.displayError()");
+		    var errorType = {
+		      0: "Unknown error",
+		      1: "Permission denied by user",
+		      2: "Position is not available",
+		      3: "Request time out"
+		    };
+		    var errorMessage = errorType[error.code];
+		    if(error.code == 0  || error.code == 2){
+		      errorMessage = errorMessage + "  " + error.message;
+		    }
+		    alert("Error Message " + errorMessage);
+		    console.log("Exiting ConsultantLocator.displayError()");
+		  }
+		    function getAddressFromLatLang(lat,lng){
+		      console.log("Entering getAddressFromLatLang()");
+		      var geocoder = new google.maps.Geocoder();
+		        var latLng = new google.maps.LatLng(lat, lng);
+		        geocoder.geocode( { 'latLng': latLng}, function(results, status) {
+		        console.log("After getting address");
+		        console.log(results);
+		        if (status == google.maps.GeocoderStatus.OK) {
+		          if (results[1]) {
+		            console.log(results[1]);
+		            // alert(results[1].formatted_address);
+		            // console.log("User Location: " + results[1].formatted_address);
+		            document.getElementById("FeatureLocation").value = results[1].formatted_address;
+
+		          }
+		        }else{
+		          alert("Sorry, we could not find your location for the following reason: " + status);
+		        }
+		        });
+		      console.log("Entering getAddressFromLatLang()");
+		    }
+
+	</script>
 
 </body>
 
