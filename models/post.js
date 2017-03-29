@@ -25,14 +25,14 @@ module.exports = function(sequelize, DataTypes) {
     },
      Latitude: {
       type: DataTypes.DECIMAL(12, 10),
-      allowNull: false,
+      allowNull: true,
       validate: {
         len: [1]
       }
     },
     Longitude: {
       type: DataTypes.DECIMAL(12, 10),
-      allowNull: false,
+      allowNull: true,
       validate: {
         len: [1]
       }
@@ -55,24 +55,6 @@ module.exports = function(sequelize, DataTypes) {
         len: [1]
       }
     },
-    Image2Name: {
-      type: DataTypes.STRING,
-      validate: {
-        len: [1]
-      }
-    },
-    Image2Path: {
-      type: DataTypes.STRING,
-      validate: {
-        len: [1]
-      }
-    },
-    Image2Description: {
-      type: DataTypes.STRING,
-      validate: {
-        len: [1]
-      }
-    },
     Link1Name: {
       type: DataTypes.STRING,
       validate: {
@@ -86,24 +68,6 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
     Link1Description: {
-      type: DataTypes.STRING,
-      validate: {
-        len: [1]
-      }
-    },
-    Link2Name: {
-      type: DataTypes.STRING,
-      validate: {
-        len: [1]
-      }
-    },
-    Link2Path: {
-      type: DataTypes.STRING,
-      validate: {
-        len: [1]
-      }
-    },
-    Link2Description: {
       type: DataTypes.STRING,
       validate: {
         len: [1]
