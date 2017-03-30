@@ -95,6 +95,58 @@
         <div class="well" id="greenpoints" align="middle">
             <h2>Search greenpoints</h2>
         </div>
+        <!-- Trigger the modal with a button, which is built dynamically in the jQuery for greenpoints -->
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-body">
+                    <!--Form in Modal-->
+                    <form id="changesById">
+                        <div class="form-group">
+                            <!-- Search DB -->
+                            <div class="panel panel-success">
+                                <div class="panel-heading">
+                                    <h1 class="panel-title">
+                                        <span class="glyphicon glyphicon-globe">
+      							</span> &nbsp; Update Database
+                                    </h1>
+                                </div>
+                                <div class="panel-body">
+                                    <!-- Feature ID, Optional  -->
+                                    <label for="modalfeatureid">ID of Item for Update:</label>
+                                    <input type="text" class="form-control" id="modalfeatureid">
+                                    <br />
+                                    <!-- Feature Name  -->
+                                    <label for="modaldescription">Feature Name:</label>
+                                    <input type="text" class="form-control" id="modaldescription">
+                                    <br />
+                                    <!-- Description  -->
+                                    <label for="modaldescription">Description:</label>
+                                    <input type="text" class="form-control" id="modaldescription">
+                                    <br />
+                                    <!-- Feature image, Optional  -->
+                                    <label for="modalfeatureimage">Image URL:</label>
+                                    <input type="text" class="form-control" id="modalfeatureimageSrc">
+                                    <br />
+                                    <!-- Feature Link, Optional  -->
+                                    <label for="modalfeaturelinkpath">Webpage:</label>
+                                    <input type="text" class="form-control" id="modalfeaturelinkpath">
+                                    <br />
+                                    <!-- Submit the modal form -->
+                                    <button type="submit" class="btn btn-success" id="modalObjectSubmit">Submit Post</button>
+                                </div>
+                            </div>
+                    </form>
+                    </div>
+                    <!--Modal Close Button-->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

@@ -41,27 +41,51 @@ $("document").ready(function() {
         $.get("/api/id/" + id, function(data) {
             if (data !== null) {
                 var currItem = data;
+                var id = currItem.id;
                 var name = currItem.FeatureName;
+                var details = currItem.FeatureDetails;
+                var details = currItem.FeatureDetails;
+                var imgSrc = "/../icons/ecopack/ecologism-2.png";
+                // build display
+                // name 
                 var featureName = $("<h2>")
                 featureName.html(name);
-                var details = currItem.FeatureDetails;
-                var featureDets = $("<p>")
-                featureDets.html(details);
+                //description details
+                var featureDets = $("<div>");
+                detailsContainer = $("<p>");
+                detailsContainer.html(details)
+                featureDets.append(detailsContainer);
+                //id addition to featureDets
+                gpID = $("<p>");
+                gpID.html(`GreenPoint ID = ${id}`);
+                featureDets.append(gpID)
                 var points = $("<div>");
-                var imgSrc = "/../icons/ecopack/ecologism-2.png";
                 points.attr("class", "well");
                 if (currItem.Image1Path && currItem.Image1Path.trim().length > 0) {
                     imgSrc = currItem.Image1Path;
                 }
                 var img = $(`<img src="${imgSrc}" alt=" ${name}" class="pointsImages" align="left">`);
+                var modalBtn = '<button type="button" align="right" class="btn btn-lg" data-toggle="modal" data-target="#myModal">Update GreenPoint</button>';
                 points.append(img);
                 points.append(featureName);
                 points.append(featureDets);
+                points.append(modalBtn);
                 $("#greenpoints").append(points);
                 console.log("data added")
             } else {
                 alert("That ID has no data associated, please try again.");
             }
+        });
+        $("#modalObjectSubmit").on("click", function() {
+            event.preventDefault();
+            var updateObj = {
+                id: $("#modalfeatureid").val(),
+                FeatureName: $("#modaldescription").val(),
+                FeatureDetails: $("#modaldescription").val(),
+                Image1Path: $("#modalfeatureimageSrc").val(),
+                Link1Path: $("#modalfeaturelinkpath").val(),
+            }
+            console.log(updateObj);
         });
     });
 });
