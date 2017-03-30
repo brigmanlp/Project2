@@ -10,6 +10,9 @@
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
+    <!--Greenpoints.js-->
+    <script src="/assets/js/greenpoints.js"></script>
+
     <!-- Font Awesome Glyphicons -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 
@@ -27,7 +30,7 @@
         <div class="row">
             <!-- FORM -->
             <div class="col-md-6" align="left">
-                <form id="citizenContribution">
+                <form id="searchByTheme">
                     <div class="form-group">
                         <!-- Search DB -->
                         <div class="panel panel-success">
@@ -57,11 +60,6 @@
 								<option value="Tree">Tree</option>
   							</select>
                                 <br />
-                                <!-- Feature Name, Optional  -->
-                                <label for="FeatureName">Feature Name:</label>
-                                <!-- updated to match DB -->
-                                <input type="text" class="form-control" id="featureName">
-                                <br />
                                 <!-- Submit the search request -->
                                 <button type="submit" class="btn btn-success" id="submitSearch">Submit</button>
                             </div>
@@ -70,7 +68,7 @@
                 </div>
             </div>
             <div class="col-md-6" align="right">
-                <form id="citizenContribution">
+                <form id="searchByDBID">
                     <div class="form-group">
                         <!-- Search DB -->
                         <div class="panel panel-success">
@@ -81,14 +79,6 @@
                                 </h1>
                             </div>
                             <div class="panel-body">
-                                <!-- DB Theme, labeled category, required -->
-                                <label for=" ">Select Category:</label>
-                                <!-- for changed to match DB -->
-                                <select class="form-control" id="category" required>
-                                <!--I Want to pull options from the DB for this-->
-								<option value=" ">Not for Use Currently</option>
-  							</select>
-                                <br />
                                 <!-- Feature ID, Optional  -->
                                 <label for="featureid">ID:</label>
                                 <!-- updated to match DB -->
@@ -105,73 +95,6 @@
         <div class="well" id="greenpoints" align="middle">
             <h2>Search greenpoints</h2>
         </div>
-        <script>
-            // on submit
-            $("#submitSearch").on("click", function() {
-                event.preventDefault();
-                //set variable for the category
-                var category = $("#category").val().trim();
-                //make a get call for the theme using the category variable 
-                $.get("/api/theme/" + category, function(data) {
-                    data.forEach(function(currItem, idx, origArr) {
-                        var name = currItem.FeatureName;
-                        var featureName = $("<h2>")
-                        featureName.html(name);
-                        var details = currItem.FeatureDetails;
-                        var featureDets = $("<p>")
-                        featureDets.html(details);
-                        var points = $("<div>");
-                        var imgSrc = "/assets/icons/ecopack/ecologism-2.png";
-                        points.attr("class", "well");
-                        if (currItem.Image1Path && currItem.Image1Path.trim().length > 0) {
-                            imgSrc = currItem.Image1Path;
-                        }
-                        var img = $(`<img src="${imgSrc}" alt=" ${name}" class="pointsImages" align="left">`);
-                        points.append(img);
-                        points.append(featureName);
-                        points.append(featureDets);
-                        $("#greenpoints").append(points);
-                    })
-                    console.log("data added")
-                });
-            });
-
-            function toNumber(strNumber) {
-                return +strNumber;
-            }
-            $("#submitID").on("click", function() {
-                event.preventDefault();
-                //set variable for the category
-                var id = $("#featureid").val();
-                id = toNumber(id);
-                //make a get call for the theme using the category variable 
-                $.get("/api/id/" + id, function(data) {
-                    if (data !== null) {
-                        var currItem = data;
-                        var name = currItem.FeatureName;
-                        var featureName = $("<h2>")
-                        featureName.html(name);
-                        var details = currItem.FeatureDetails;
-                        var featureDets = $("<p>")
-                        featureDets.html(details);
-                        var points = $("<div>");
-                        var imgSrc = "/assets/icons/ecopack/ecologism-2.png";
-                        points.attr("class", "well");
-                        if (currItem.Image1Path && currItem.Image1Path.trim().length > 0) {
-                            imgSrc = currItem.Image1Path;
-                        }
-                        var img = $(`<img src="${imgSrc}" alt=" ${name}" class="pointsImages" align="left">`);
-                        points.append(img);
-                        points.append(featureName);
-                        points.append(featureDets);
-                        $("#greenpoints").append(points);
-                        console.log("data added")
-                    } else {
-                        alert("That ID has no data associated, please try again.");
-                    }
-                });
-            });
-        </script>
 </body>
 
 </html>
