@@ -13,6 +13,8 @@
     text-align: center;
 }
 
+#greenpoints {}
+
 .pointsImages {
-    width: 100px;
+    max-height: 150px;
 }
