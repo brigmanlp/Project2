@@ -25,7 +25,7 @@ module.exports = function(app) {
         res.sendFile(path.join(__dirname + "/../public/greenpoints.html"));
     });
 
-        app.get("/description", function(req, res) {
+    app.get("/description", function(req, res) {
         res.sendFile(path.join(__dirname + "/../public/description.html"));
     });
 };
