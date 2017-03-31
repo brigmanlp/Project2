@@ -1,31 +1,33 @@
 {
-    "name": "greencharlotte",
-    "version": "1.0.0",
-    "description": "Project utilizing Node, Express Web Server, MySQL database with Sequelize ORM.",
-    "main": "server.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "node server.js",
-        "hannah": "NODE_ENV=hannah node server.js",
-        "louremy": "NODE_ENV=louremy node server.js",
-        "meredith": "NODE_ENV=meredith node server.js",
-        "jasmine": "set NODE_ENV=jasmine&& node server.js",
-        "christina": "set NODE_ENV=christina&& node server.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/brigmanlp/Project2.git"
-    },
-    "author": "",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/brigmanlp/Project2/issues"
-    },
-    "homepage": "https://github.com/brigmanlp/Project2#readme",
-    "dependencies": {
-        "body-parser": "^1.17.1",
-        "express": "^4.15.2",
-        "mysql": "^2.13.0",
-        "sequelize": "^3.30.2"
-    }
+  "name": "greencharlotte",
+  "version": "1.0.0",
+  "description": "Project utilizing Node, Express Web Server, MySQL database with Sequelize ORM.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "hannah": "NODE_ENV=hannah node server.js",
+    "louremy": "NODE_ENV=louremy node server.js",
+    "meredith": "NODE_ENV=meredith node server.js",
+    "jasmine": "set NODE_ENV=jasmine&& node server.js",
+    "christina": "set NODE_ENV=christina&& node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brigmanlp/Project2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brigmanlp/Project2/issues"
+  },
+  "homepage": "https://github.com/brigmanlp/Project2#readme",
+  "dependencies": {
+    "auth0-lock": "^10.14.0",
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "mysql": "^2.13.0",
+    "pg": "^6.1.5",
+    "sequelize": "^3.30.2"
+  }
 }
