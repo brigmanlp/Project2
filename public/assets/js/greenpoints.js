@@ -48,7 +48,7 @@ $("document").ready(function() {
                 imgDiv.attr("align", "left");
                 var img = $(`<img src="${imgSrc}" alt=" ${name}" class="pointsImages" align="left">`);
                 imgDiv.append(img);
-                var modalBtn = '<button type="button" align="right" class="btn btn-lg" data-toggle="modal" data-target="#myModal">Update GreenPoint</button>';
+                var modalBtn = '<button type="button" align="left" class="btn btn-lg" data-toggle="modal" data-target="#myModal">Update GreenPoint</button>';
                 points.append(imgDiv);
                 points.append(featureDets);
                 points.append(modalBtn);
