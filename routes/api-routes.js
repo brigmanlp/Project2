@@ -65,18 +65,20 @@ module.exports = function(app) {
 
     // DELETE route for deleting posts
     app.delete("/api/removebyid/:id", function(req, res) {
-        db.citizencontribution.findOne({
+        db.citizencontribution.destroy({
                 where: {
                     id: req.params.id
                 }
             })
             .then(function(dbcitizencontribution) {
                 res.json(dbcitizencontribution);
+                console.log("Data Destroyed")
             });
     });
     // PUT route for updating posts
     app.put("/api/updatebyid/:id", function(req, res) {
         db.citizencontribution.update(req.body, {
+                set: {},
                 where: {
                     id: req.body.id
                 }
