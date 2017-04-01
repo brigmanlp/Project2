@@ -53,10 +53,7 @@
         "dialect": "mysql"
     },
     "production": {
-        "username": "root",
-        "password": null,
-        "database": "greenPoints",
-        "host": "127.0.0.1",
-        "dialect": "postgres"
+        "use_env_variable": "JAWSDB_URL",
+        "dialect": "mysql"
     }
 }
