@@ -10,7 +10,7 @@ $("document").ready(function() {
                 var id = currItem.id;
                 var name = currItem.FeatureName;
                 var details = currItem.FeatureDetails;
-                var imgSrc = "/../icons/ecopack/ecologism-2.png";
+                var imgSrc = "assets/icons/ecopack/ecologism-2.png";
                 // build display
                 // name 
                 var featureName = $("<h2>");
